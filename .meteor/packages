@@ -23,3 +23,5 @@ reactive-dict
 accounts-password
 aldeed:template-extension
 useraccounts:unstyled
+kadira:flow-router
+kadira:blaze-layout

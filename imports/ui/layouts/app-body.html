@@ -1,6 +1,6 @@
-<body>
+<template name="App_body">
   <div class="container">
     <header><h1>Non-Profit Finder</h1></header>
-    {{#unless currentUser }} {{> signIn}} {{/unless}}
+    {{> Template.dynamic template=main}}
   </div>
-</body>
+</template>

@@ -1,8 +1,8 @@
 import { Template } from 'meteor/templating'
-import { Tasks } from '../api/tasks.js'
 import { ReactiveDict } from 'meteor/reactive-dict'
-import './body.html'
-import './sign-in.js'
+import './app-body.html'
+import '../sign-in.js'
+import '../pages/home.js'
 
 Template.body.onCreated(function bodyOnCreated() {
   this.state = new ReactiveDict()
