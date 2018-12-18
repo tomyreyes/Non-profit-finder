@@ -1,5 +1,5 @@
 import { Template } from 'meteor/templating'
-import './sign-in.html'
+import './login.html'
 
 Template['override-atTextInput'].replaces('atTextInput')
 Template['override-atPwdFormBtn'].replaces('atPwdFormBtn')
