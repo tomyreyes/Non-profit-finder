@@ -17,24 +17,11 @@ FlowRouter.route('/login', {
   }
 })
 
-const userRoutes = FlowRouter.group({
-  prefix: '/users',
-  triggersEnter: [
-    (context, redirect) => {
-      if (!Meteor.userId()) {
-        redirect('/admin/login')
-      }
-    }
-  ]
-})
-
-// this will be /users/profile/:_id
-userRoutes.route('/profile/:_id', {
+FlowRouter.route('/profile/:_id', {
   name: 'User Profile',
-  //   triggersEnter: [()=> {
-  //       Meteor.userId()
-  //   }],
-  action() {
+  action(params, queryParams) {
+    console.log(params)
+    console.log(queryParams)
     BlazeLayout.render('app-body', { main: 'profile' })
   }
 })
@@ -46,5 +33,5 @@ FlowRouter.notFound = {
 }
 
 Accounts.onLogin(() => {
-  FlowRouter.go('/profile/:_id')
+  FlowRouter.go(`/profile/${Meteor.userId()}`)
 })
