@@ -25,3 +25,7 @@ aldeed:template-extension
 useraccounts:unstyled
 kadira:flow-router
 kadira:blaze-layout
+aldeed:collection2@3.0.0
+accounts-google
+service-configuration
+random
