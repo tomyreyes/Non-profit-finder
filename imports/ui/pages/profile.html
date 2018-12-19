@@ -1,5 +1,6 @@
 <template name="profile">
   <div>this is the profile page</div>
-  <button class="profilebtn">click me</button> {{#if isOwner}}
-  <button>edit profile info</button> {{/if}}
+  {{#with profile}}
+  <div>{{ userId }}</div>
+  {{/with}} {{#if isOwner}} <button>edit profile info</button> {{/if}}
 </template>

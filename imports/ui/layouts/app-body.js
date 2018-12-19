@@ -7,8 +7,15 @@ import '../pages/home.js'
 import '../pages/profile.js'
 import '../partials/navigation.js'
 import '../pages/not-found.js'
+import { Profiles } from '../../api/profiles/profiles.js'
 
-Template.body.onCreated(function bodyOnCreated() {
+Template.appbody.onCreated(function bodyOnCreated() {
   this.state = new ReactiveDict()
   Meteor.subscribe('profiles')
+})
+
+Template.appbody.helpers({
+  profiles() {
+    return Profiles.find({})
+  }
 })
