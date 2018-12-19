@@ -1,8 +1,8 @@
-import { Meteor } from 'meteor/meteor'
 import { Mongo } from 'meteor/mongo'
 import SimpleSchema from 'simpl-schema'
 
 export const Profiles = new Mongo.Collection('profiles')
+
 const ProfilesSchema = new SimpleSchema({
   _id: {
     type: String,
@@ -31,18 +31,11 @@ const ProfilesSchema = new SimpleSchema({
 
 Profiles.attachSchema(ProfilesSchema)
 
-Meteor.methods({
-  'profiles.insertUserId'(userId) {
-    Profiles.insert({
-      userId
-    })
-  },
-  'profiles.editInfo'(name, email, bio) {
-    Profiles.insert({
-      name,
-      email,
-      bio
-    })
+Profiles.helpers({
+  editableBy(userId) {
+    if (!this.userId) {
+      return true
+    }
+    return this.userId === userId
   }
 })
-//methods for Profiles here.
