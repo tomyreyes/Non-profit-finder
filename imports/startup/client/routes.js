@@ -12,16 +12,14 @@ FlowRouter.route('/', {
 
 FlowRouter.route('/login', {
   login: 'Login',
-  action() {
+  action(params, queryParams) {
     BlazeLayout.render('app-body', { main: 'login' })
   }
 })
 
-FlowRouter.route('/profile/:_id', {
+FlowRouter.route('/profile/:id', {
   name: 'User Profile',
   action(params, queryParams) {
-    console.log(params)
-    console.log(queryParams)
     BlazeLayout.render('app-body', { main: 'profile' })
   }
 })

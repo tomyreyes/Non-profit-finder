@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor'
-import './profiles.js'
+import { Profiles } from './profiles.js'
 
 Meteor.methods({
   'profiles.insertUserId'(userId) {
@@ -9,6 +9,7 @@ Meteor.methods({
   },
   'profiles.editInfo'(name, email, bio) {
     const profile = Profiles.findOne(this.userId) //test this
+
     if (!profile.editableBy(this.userId)) {
       throw new Meteor.Error(
         'todos.setCheckedStatus.accessDenied',
