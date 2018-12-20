@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor'
-import '../../api/profiles/profiles.js'
+import '../../api/profiles/methods.js'
 
 Accounts.onCreateUser((options, user) => {
   user._id = Random.id()

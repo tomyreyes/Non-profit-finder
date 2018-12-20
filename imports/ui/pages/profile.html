@@ -1,5 +1,22 @@
 <template name="profile">
-  {{#each profiles }}
-  <div>{{ userId }}</div>
+  {{#each publicProfile}} {{ userId }} {{/each}}
+
+  {{#each userProfile }}
+
+  {{#if isOwner}}
+
+  {{#if ownerMissingInfo}}
+
+  <h1>Make sure to complete your profile</h1>
+
+  {{/if}}
+
+  <button>Edit Fields</button>
+
+  {{/if}}
+
+  <p>{{ name }}</p>
+  <p>{{ email }}</p>
+  <p>{{ bio }}</p>
   {{/each}}
 </template>
