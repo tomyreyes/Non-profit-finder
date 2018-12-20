@@ -1,6 +1,5 @@
 <template name="profile">
-  <div>this is the profile page</div>
-  {{#with profile}}
+  {{#each profiles }}
   <div>{{ userId }}</div>
-  {{/with}} {{#if isOwner}} <button>edit profile info</button> {{/if}}
+  {{/each}}
 </template>

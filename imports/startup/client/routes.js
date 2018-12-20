@@ -1,4 +1,3 @@
-import { Meteor } from 'meteor/meteor'
 import { FlowRouter } from 'meteor/kadira:flow-router'
 import { BlazeLayout } from 'meteor/kadira:blaze-layout'
 import '../../ui/layouts/app-body.js'
@@ -19,7 +18,7 @@ FlowRouter.route('/login', {
 })
 
 FlowRouter.route('/profile/:id', {
-  name: 'User Profile',
+  name: 'UserProfile',
   action() {
     BlazeLayout.render('appbody', { main: 'profile' })
   }
@@ -30,7 +29,3 @@ FlowRouter.notFound = {
     BlazeLayout.render('appbody', { main: 'not-found' })
   }
 }
-
-Accounts.onLogin(() => {
-  FlowRouter.go(`/profile/${Meteor.userId()}`)
-})
