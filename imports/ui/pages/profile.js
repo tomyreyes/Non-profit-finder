@@ -5,10 +5,12 @@ import { Profiles } from '../../api/profiles/profiles.js'
 
 let publicProfileId
 Template.profile.onCreated(function profileOnCreated() {
-  this.state = new ReactiveDict()
-  publicProfileId = FlowRouter.getParam('id')
-  Meteor.subscribe('userProfile')
-  Meteor.subscribe('publicProfile')
+  this.autorun(() => {
+    this.state = new ReactiveDict()
+    publicProfileId = FlowRouter.getParam('id')
+    this.subscribe('userProfile')
+    this.subscribe('publicProfile', publicProfileId)
+  })
 })
 
 Template.profile.helpers({
@@ -29,5 +31,3 @@ Template.profile.helpers({
     return false
   }
 })
-
-//get profile that matches ????
