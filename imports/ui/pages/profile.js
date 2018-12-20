@@ -5,6 +5,7 @@ import { Profiles } from '../../api/profiles/profiles.js'
 
 let publicProfileId
 Template.profile.onCreated(function profileOnCreated() {
+  //if I change to arrow there is no longer a this.
   this.autorun(() => {
     this.state = new ReactiveDict()
     publicProfileId = FlowRouter.getParam('id')

@@ -21,10 +21,18 @@ FlowRouter.route('/profile/:id', {
   name: 'UserProfile',
   action() {
     BlazeLayout.render('appbody', { main: 'profile' })
-  }
+  },
+  triggersEnter: [
+    (context, redirect) => {
+      if (!Meteor.userId()) {
+        FlowRouter.go('Login')
+      }
+    }
+  ]
 })
 
 FlowRouter.notFound = {
+  name: 'NotFound',
   action() {
     BlazeLayout.render('appbody', { main: 'not-found' })
   }
