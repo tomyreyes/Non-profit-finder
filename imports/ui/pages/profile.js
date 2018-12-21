@@ -1,7 +1,8 @@
 import { Meteor } from 'meteor/meteor'
 import { Template } from 'meteor/templating'
-import './profile.html'
+import { ReactiveDict } from 'meteor/reactive-dict'
 import { Profiles } from '../../api/profiles/profiles.js'
+import './profile.html'
 
 let publicProfileId
 Template.profile.onCreated(function profileOnCreated() {
@@ -29,6 +30,17 @@ Template.profile.helpers({
     if (!profile.id || !profile.email || !profile.bio) {
       return true
     }
-    return false
+  },
+  isEditing() {
+    const instance = Template.instance()
+    if (instance.state.get('isEditing')) {
+      return true
+    }
+  }
+})
+
+Template.profile.events({
+  'click .edit-profile'(event, instance) {
+    instance.state.set('isEditing', true)
   }
 })

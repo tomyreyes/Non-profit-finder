@@ -4,7 +4,7 @@ const sendToLogin = () => {
 }
 
 const sendToProfile = () => {
-  FlowRouter.go(`/profile/${Meteor.userId()}`)
+  FlowRouter.go(`/profiles/${Meteor.userId()}`)
 }
 
 AccountsTemplates.configure({

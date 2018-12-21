@@ -1,6 +1,5 @@
-import './app-body.html'
-import '../pages/login.js'
-import '../pages/home.js'
+import './profiles-layout.html'
 import '../pages/profile.js'
 import '../partials/navigation.js'
 import '../pages/not-found.js'
+import '../pages/profiles-directory.js'

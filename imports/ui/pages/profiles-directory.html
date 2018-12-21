@@ -1,0 +1,10 @@
+<template name="profilesDirectory">
+  <div class="container">
+    <header><h1>Profiles Directory</h1></header>
+    <ul>
+      {{#each listOfProfiles}}
+      <li>{{ userId }}</li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

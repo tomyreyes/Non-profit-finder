@@ -1,5 +1,9 @@
 <template name="profile">
-  {{#each publicProfile}} {{ userId }} {{/each}}
+  {{#each publicProfile}}
+
+  {{ name }} {{ email }} {{ bio }} {{ userId }}
+
+  {{/each}}
 
   {{#each userProfile }}
 
@@ -11,7 +15,13 @@
 
   {{/if}}
 
-  <button>Edit Fields</button>
+  <button class="edit-profile">Edit Fields</button>
+
+  {{#if isEditing}}
+
+  Form Placeholder
+
+  {{/if}}
 
   {{/if}}
 

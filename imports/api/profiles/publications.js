@@ -19,7 +19,7 @@ if (Meteor.isServer) {
   Meteor.publish('publicProfile', function profilesPublication(
     publicProfileId
   ) {
-    check(id, String)
+    check(publicProfileId, String)
     return Profiles.find(
       { userId: publicProfileId },
       {
@@ -31,5 +31,18 @@ if (Meteor.isServer) {
         }
       }
     )
-  })
+  }),
+    Meteor.publish('listOfProfiles', function profilesPublication() {
+      return Profiles.find(
+        {},
+        {
+          fields: {
+            name: 1,
+            email: 1,
+            bio: 1,
+            userId: 1
+          }
+        }
+      )
+    })
 }
