@@ -10,12 +10,16 @@ Template.profile.onCreated(function profileOnCreated() {
   this.autorun(() => {
     this.state = new ReactiveDict()
     publicProfileId = FlowRouter.getParam('id')
+    this.subscribe('profilesCollection')
     this.subscribe('userProfile')
     this.subscribe('publicProfile', publicProfileId)
   })
 })
 
 Template.profile.helpers({
+  profilesCollection() {
+    return Profiles
+  },
   userProfile() {
     return Profiles.find({})
   },
@@ -31,6 +35,9 @@ Template.profile.helpers({
       return true
     }
   },
+  updateProfile() {
+    return this._userId
+  },
   isEditing() {
     const instance = Template.instance()
     if (instance.state.get('isEditing')) {
@@ -41,6 +48,6 @@ Template.profile.helpers({
 
 Template.profile.events({
   'click .edit-profile'(event, instance) {
-    instance.state.set('isEditing', true)
+    instance.state.set('isEditing', !instance.state.get('isEditing'))
   }
 })

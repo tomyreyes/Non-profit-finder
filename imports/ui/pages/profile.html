@@ -1,10 +1,4 @@
 <template name="profile">
-  {{#each publicProfile}}
-
-  {{ name }} {{ email }} {{ bio }} {{ userId }}
-
-  {{/each}}
-
   {{#each userProfile }}
 
   {{#if isOwner}}
@@ -19,14 +13,29 @@
 
   {{#if isEditing}}
 
-  Form Placeholder
+  {{>quickForm collection=profilesCollection id="updateProfile" type="update" doc=this class="update-profile-form"}}
+
+  {{/if}} {{else }}
+
+  {{#each publicProfile}}
+
+  {{ name }} {{ email }} {{ bio }} {{ userId }}
+
+  {{/each}}
 
   {{/if}}
 
+  {{#if name}}
+  <p>Name: {{ name }}</p>
   {{/if}}
 
-  <p>{{ name }}</p>
-  <p>{{ email }}</p>
-  <p>{{ bio }}</p>
+  {{#if email}}
+  <p>Email: {{ email }}</p>
+  {{/if}}
+
+  {{#if bio}}
+  <p>Bio: {{ bio }}</p>
+  {{/if}}
+
   {{/each}}
 </template>

@@ -11,7 +11,8 @@ if (Meteor.isServer) {
           name: 1,
           email: 1,
           bio: 1,
-          userId: 1
+          userId: 1,
+          inTeam: 1
         }
       }
     )
@@ -27,7 +28,8 @@ if (Meteor.isServer) {
           name: 1,
           email: 1,
           bio: 1,
-          userId: 1
+          userId: 1,
+          inTeam: 1
         }
       }
     )
@@ -40,7 +42,8 @@ if (Meteor.isServer) {
             name: 1,
             email: 1,
             bio: 1,
-            userId: 1
+            userId: 1,
+            inTeam: 1
           }
         }
       )

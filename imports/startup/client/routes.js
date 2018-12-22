@@ -47,6 +47,20 @@ FlowRouter.route('/profiles/:id', {
   ]
 })
 
+FlowRouter.route('/teams', {
+  name: 'Teams',
+  action() {
+    BlazeLayout.render('profilesLayout', { page: 'teamsDirectory' })
+  },
+  triggersEnter: [
+    (context, redirect) => {
+      if (!Meteor.userId()) {
+        FlowRouter.go('/login')
+      }
+    }
+  ]
+})
+
 FlowRouter.notFound = {
   name: 'NotFound',
   action() {
