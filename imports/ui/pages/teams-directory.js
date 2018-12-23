@@ -9,7 +9,7 @@ Template.teamsDirectory.onCreated(function teamsOnCreated() {
   this.autorun(() => {
     this.state = new ReactiveDict()
     // this.subscribe('teams')
-    this.subscribe('singleUser')
+    this.subscribe('userProfile')
   })
 })
 

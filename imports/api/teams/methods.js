@@ -28,5 +28,21 @@ Meteor.methods({
       },
       { $set: { name: data.name, description: data.description } }
     )
+  },
+  'teams.addMember'(data) {
+    Teams.update(
+      {
+        adminId: this.userId
+      },
+      {
+        $push: {
+          members: {
+            name: data.member.name,
+            userId: data.member.userId
+          }
+        }
+      }
+    ),
+      console.log(data)
   }
 })

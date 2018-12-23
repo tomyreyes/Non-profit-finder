@@ -60,7 +60,6 @@ Template.createTeam.helpers({
     }
   },
   userTeam() {
-    console.log(this)
     return Teams.find({})
   },
   isEditing() {
