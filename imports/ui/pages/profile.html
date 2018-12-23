@@ -9,17 +9,33 @@
 
   {{/if}}
 
-  <button class="edit-profile">Edit Fields</button>
+  <button class="edit-profile-btn">Edit Fields</button>
 
   {{#if isEditing}}
-
-  {{>quickForm collection=profilesCollection id="updateProfile" type="update" doc=this class="update-profile-form"}}
+  <form class="edit-profile">
+    <input
+      type="text"
+      name="name"
+      placeholder="{{#if name}}{{ name }}{{else}} Enter name {{/if}}"
+    />
+    <input
+      type="text"
+      name="email"
+      placeholder="{{#if email}}{{ email }}{{else}} Enter email {{/if}}"
+    />
+    <input
+      type="text"
+      name="bio"
+      placeholder="{{#if bio}}{{ bio }}{{else}} Enter bio {{/if}}"
+    />
+    <input type="submit" value="Submit" />
+  </form>
 
   {{/if}} {{else }}
 
   {{#each publicProfile}}
 
-  {{ name }} {{ email }} {{ bio }} {{ userId }}
+  {{ name }} {{ email }} {{ bio }}
 
   {{/each}}
 

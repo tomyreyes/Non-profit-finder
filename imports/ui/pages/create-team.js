@@ -3,7 +3,6 @@ import { Template } from 'meteor/templating'
 import { ReactiveDict } from 'meteor/reactive-dict'
 import { Teams } from '../../api/teams/teams.js'
 import './teams-directory.html'
-import { Profiles } from '../../api/profiles/profiles.js'
 import './create-team.html'
 
 Template.createTeam.onCreated(function teamOnCreated() {
@@ -61,6 +60,7 @@ Template.createTeam.helpers({
     }
   },
   userTeam() {
+    console.log(this)
     return Teams.find({})
   },
   isEditing() {

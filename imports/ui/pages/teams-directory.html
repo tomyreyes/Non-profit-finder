@@ -1,7 +1,6 @@
 <template name="teamsDirectory">
   <div class="container">
-    <header><h1>Teams Directory</h1></header>
+    <h1>Teams Directory</h1>
+    <div>{{#each userProfile}} {{> createTeam}} {{/each}}</div>
   </div>
-  <div>{{#each userProfile}} {{>createTeam}} {{/each}}</div>
-  <!-- {{#each teamsList}} {{ name }} {{/each}} -->
 </template>

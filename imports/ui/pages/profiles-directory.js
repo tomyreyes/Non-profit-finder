@@ -14,3 +14,9 @@ Template.profilesDirectory.helpers({
     return Profiles.find({})
   }
 })
+
+Template.profilesDirectory.events({
+  'click .add-to-team'() {
+    console.log(this)
+  }
+})

@@ -47,5 +47,19 @@ if (Meteor.isServer) {
           }
         }
       )
+    }),
+    Meteor.publish('singleUser', function profilesPublication() {
+      return Profiles.find(
+        { userId: this.userId },
+        {
+          fields: {
+            name: 1,
+            email: 1,
+            bio: 1,
+            userId: 1,
+            inTeam: 1
+          }
+        }
+      )
     })
 }

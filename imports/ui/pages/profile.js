@@ -30,8 +30,7 @@ Template.profile.helpers({
     return this.userId === Meteor.userId() && this.userId === publicProfileId
   },
   ownerMissingInfo() {
-    const profile = Profiles.find({})
-    if (!profile.id || !profile.email || !profile.bio) {
+    if (!this.name || !this.email || !this.bio) {
       return true
     }
   },
@@ -47,7 +46,20 @@ Template.profile.helpers({
 })
 
 Template.profile.events({
-  'click .edit-profile'(event, instance) {
+  'click .edit-profile-btn'(event, instance) {
     instance.state.set('isEditing', !instance.state.get('isEditing'))
+  },
+  'submit .edit-profile'(event) {
+    event.preventDefault()
+    const name = event.target.name.value || this.name
+    const email = event.target.email.value || this.email
+    const bio = event.target.bio.value || this.bio
+    const userId = this.userId
+    Meteor.call('profiles.editProfile', {
+      name,
+      email,
+      bio,
+      userId
+    })
   }
 })

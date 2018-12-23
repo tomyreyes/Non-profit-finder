@@ -5,14 +5,14 @@ import { Profiles } from '../profiles/profiles.js'
 Meteor.methods({
   'teams.createTeam'(data) {
     Teams.insert({
-      adminId: data.adminId,
+      adminId: this.userId,
       owner: data.owner,
       name: data.name,
       description: data.description
     })
     Profiles.update(
       {
-        userId: data.userId
+        userId: this.userId
       },
       {
         $set: {
