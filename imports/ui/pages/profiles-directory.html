@@ -11,11 +11,19 @@
       {{else}}
 
       {{#if profile.name}}
-      <li>{{ profile.name }}</li>
-      {{#if memberOfTeam }}
+      <li>
+        <a href="/profiles/{{ profile.userId }}">{{ profile.name }}</a>
+      </li>
+      {{#if profile.inTeam }}
       <span>user belongs to team</span>
       {{else}}
-      <button class="add-to-team">Add to Team</button>
+      <button
+        class="add-to-team"
+        name="{{ profile.name }}"
+        id="{{ profile.userId }}"
+      >
+        Add to Team
+      </button>
       {{/if}}
       {{else}}
       <!-- blank so you don't show profile until user edits profile-->

@@ -5,25 +5,19 @@ import './profiles-directory.html'
 
 Template.profilesDirectory.helpers({
   listOfProfiles() {
-    return Profiles.find({})
-  },
-  memberOfTeam() {
-    if (this.inTeam) {
-      return true
-    }
-    return false
-  },
-  isUser() {
-    //findOne, same strategy
-    return this.userId === Meteor.userId()
+    const profiles = Profiles.find({}).fetch()
+    const list = profiles.filter(profile => profile.userId !== Meteor.userId())
+    console.log(list)
+    return list
   }
 })
 
 Template.profilesDirectory.events({
   'click .add-to-team'(event) {
     event.preventDefault()
-    const name = this.name
-    const userId = this.userId
+
+    const name = event.target.name
+    const userId = event.target.id
     const member = { name, userId }
     Meteor.call('teams.addMember', { member })
   }

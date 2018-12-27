@@ -5,12 +5,11 @@ import { Profiles } from '../../api/profiles/profiles.js'
 import { Teams } from '../../api/teams/teams.js'
 import './teams-directory.html'
 import './create-team.html'
-let profile
 
 Template.createTeam.onCreated(function teamOnCreated() {
   this.autorun(() => {
     this.state = new ReactiveDict()
-    this.subscribe('profile')
+    this.subscribe('profiles')
     this.subscribe('teams')
   })
 })
@@ -20,15 +19,13 @@ Template.createTeam.helpers({
     return Teams
   },
   notInTeam() {
-    profile = Profiles.findOne({ userId: Meteor.userId() })
-
+    const profile = Profiles.findOne({ userId: Meteor.userId() })
     if (profile && profile.inTeam) {
       return false
     } else return true
   },
   userTeam() {
     let userTeam = Teams.findOne({ adminId: Meteor.userId() })
-    console.log(userTeam)
     return userTeam
   },
   isEditing() {

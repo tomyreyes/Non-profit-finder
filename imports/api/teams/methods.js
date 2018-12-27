@@ -43,6 +43,13 @@ Meteor.methods({
         }
       }
     ),
-      console.log(data)
+      Profiles.update(
+        {
+          userId: data.member.userId
+        },
+        {
+          $set: { inTeam: true }
+        }
+      )
   }
 })

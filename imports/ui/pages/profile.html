@@ -36,6 +36,13 @@
 
   <h2>Email: {{ userProfile.email }}</h2>
 
+  {{#if ifUserIsInTeam }}
+
+  <h2>Team: {{ ifUserIsInTeam.name }}</h2>
+  {{else}}
+  <p>User is not in a team.</p>
+  {{/if}}
+
   <p>Bio: {{ userProfile.bio }}</p>
 
   {{/if}}
@@ -44,7 +51,14 @@
 
   {{#if publicProfile }}
 
-  {{ publicProfile.name }} {{ publicProfile.email }} {{ publicProfile.bio }}
+  <h2>{{ publicProfile.name }}</h2>
+  <h2>{{ publicProfile.email }}</h2>
+  {{#if ifPublicIsInTeam}}
+  <h2>{{ ifPublicIsInTeam.name }}</h2>
+  {{else}}
+  <p>User is not in a team.</p>
+  {{/if}}
+  <h2>{{ publicProfile.bio }}</h2>
 
   {{/if}}
 

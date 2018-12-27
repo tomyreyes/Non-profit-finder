@@ -11,6 +11,7 @@ Template.profile.onCreated(function profileOnCreated() {
     this.state = new ReactiveDict()
     publicProfileId = FlowRouter.getParam('id')
     this.subscribe('profiles')
+    this.subscribe('teams')
   })
 })
 
@@ -42,8 +43,26 @@ Template.profile.helpers({
       return true
     }
   },
-  memberOfTeam() {
-    return Teams.find({})
+  ifUserIsInTeam() {
+    const admin = Teams.findOne({ adminId: Meteor.userId() })
+    const userteam = Teams.findOne({
+      members: { $elemMatch: { userId: Meteor.userId() } }
+    })
+
+    if (admin || userteam) {
+      return admin || userteam
+    } else false
+  },
+
+  ifPublicIsInTeam() {
+    const admin = Teams.findOne({ adminId: publicProfileId })
+    const userteam = Teams.findOne({
+      members: { $elemMatch: { userId: publicProfileId } }
+    })
+
+    if (admin || userteam) {
+      return admin || userteam
+    } else false
   }
 })
 
@@ -53,10 +72,11 @@ Template.profile.events({
   },
   'submit .edit-profile'(event) {
     event.preventDefault()
+    console.log(this.name)
     const name = event.target.name.value || this.name
     const email = event.target.email.value || this.email
     const bio = event.target.bio.value || this.bio
-    const userId = this.userId
+    const userId = Meteor.userId()
     Meteor.call('profiles.editProfile', {
       name,
       email,
