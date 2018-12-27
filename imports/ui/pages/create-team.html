@@ -8,22 +8,26 @@
   </form>
   {{else}}
 
-  {{#each userTeam}}
+  {{#if userTeam}}
 
   <h2>Your team</h2>
   <button class="edit-team-btn">Edit Team</button> {{#if isEditing}}
   <form class="edit-team">
-    <input type="text" name="name" placeholder="{{ name }}" />
-    <input type="text" name="description" placeholder="{{ description }}" />
+    <input type="text" name="name" placeholder="{{ userTeam.name }}" />
+    <input
+      type="text"
+      name="description"
+      placeholder="{{ userTeam.description }}"
+    />
     <input type="submit" value="Submit" />
   </form>
   {{/if}}
 
-  <h3>{{ name }}</h3>
+  <h3>Team Name: {{ userTeam.name }}</h3>
 
-  <h3>{{ description }}</h3>
+  <h3>Description: {{ userTeam.description }}</h3>
 
-  {{/each}}
+  {{/if}}
 
   {{/if}}
 </template>

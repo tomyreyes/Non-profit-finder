@@ -3,45 +3,47 @@ import { Template } from 'meteor/templating'
 import { ReactiveDict } from 'meteor/reactive-dict'
 import { Profiles } from '../../api/profiles/profiles.js'
 import './profile.html'
+import { Teams } from '../../api/teams/teams.js'
 
 let publicProfileId
 Template.profile.onCreated(function profileOnCreated() {
-  //if I change to arrow there is no longer a this.
   this.autorun(() => {
     this.state = new ReactiveDict()
     publicProfileId = FlowRouter.getParam('id')
-    this.subscribe('profilesCollection')
-    this.subscribe('userProfile')
-    this.subscribe('publicProfile', publicProfileId)
+    this.subscribe('profiles')
   })
 })
 
 Template.profile.helpers({
-  profilesCollection() {
-    return Profiles
-  },
   userProfile() {
-    return Profiles.find({})
+    return Profiles.findOne({ userId: Meteor.userId() })
   },
   publicProfile() {
-    return Profiles.find({ userId: publicProfileId })
+    return Profiles.findOne({ userId: publicProfileId })
   },
   isOwner() {
-    return this.userId === Meteor.userId() && this.userId === publicProfileId
+    publicProfileId = FlowRouter.getParam('id')
+    return Meteor.userId() === publicProfileId
   },
+
   ownerMissingInfo() {
-    if (!this.name || !this.email || !this.bio) {
+    const profile = Profiles.findOne({ userId: Meteor.userId() })
+    if (!profile.name || !profile.email || !profile.bio) {
       return true
     }
   },
   updateProfile() {
-    return this._userId
+    const profile = Profiles.findOne({ userId: Meteor.userId() })
+    return profile._userId
   },
   isEditing() {
     const instance = Template.instance()
     if (instance.state.get('isEditing')) {
       return true
     }
+  },
+  memberOfTeam() {
+    return Teams.find({})
   }
 })
 

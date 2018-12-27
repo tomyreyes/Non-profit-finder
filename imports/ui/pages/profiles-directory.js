@@ -1,14 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import { Template } from 'meteor/templating'
-import { ReactiveDict } from 'meteor/reactive-dict'
 import { Profiles } from '../../api/profiles/profiles.js'
 import './profiles-directory.html'
-
-Template.profilesDirectory.onCreated(function bodyOnCreated() {
-  this.state = new ReactiveDict()
-  Meteor.subscribe('listOfProfiles')
-  Meteor.subscribe('userProfile')
-})
 
 Template.profilesDirectory.helpers({
   listOfProfiles() {
@@ -19,6 +12,10 @@ Template.profilesDirectory.helpers({
       return true
     }
     return false
+  },
+  isUser() {
+    //findOne, same strategy
+    return this.userId === Meteor.userId()
   }
 })
 

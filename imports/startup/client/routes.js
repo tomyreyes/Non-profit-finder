@@ -1,28 +1,27 @@
 import { FlowRouter } from 'meteor/kadira:flow-router'
 import { BlazeLayout } from 'meteor/kadira:blaze-layout'
 import '../../ui/layouts/app-body.js'
-import '../../ui/layouts/profiles-layout.js'
 import '../../ui/pages/profile.js'
 import '../../ui/pages/profiles-directory.js'
 
 FlowRouter.route('/', {
   name: 'Home',
   action() {
-    BlazeLayout.render('appbody', { main: 'home' })
+    BlazeLayout.render('appBody', { page: 'home' })
   }
 })
 
 FlowRouter.route('/login', {
   login: 'login',
   action() {
-    BlazeLayout.render('appbody', { main: 'login' })
+    BlazeLayout.render('appBody', { page: 'login' })
   }
 })
 
 FlowRouter.route('/profiles', {
   name: 'Profiles',
   action() {
-    BlazeLayout.render('profilesLayout', { page: 'profilesDirectory' })
+    BlazeLayout.render('appBody', { page: 'profilesDirectory' })
   },
   triggersEnter: [
     (context, redirect) => {
@@ -36,7 +35,7 @@ FlowRouter.route('/profiles', {
 FlowRouter.route('/profiles/:id', {
   name: 'UserProfile',
   action() {
-    BlazeLayout.render('profilesLayout', { page: 'profile' })
+    BlazeLayout.render('appBody', { page: 'profile' })
   },
   triggersEnter: [
     (context, redirect) => {
@@ -50,7 +49,7 @@ FlowRouter.route('/profiles/:id', {
 FlowRouter.route('/teams', {
   name: 'Teams',
   action() {
-    BlazeLayout.render('profilesLayout', { page: 'teamsDirectory' })
+    BlazeLayout.render('appBody', { page: 'teamsDirectory' })
   },
   triggersEnter: [
     (context, redirect) => {
@@ -61,9 +60,9 @@ FlowRouter.route('/teams', {
   ]
 })
 
-FlowRouter.notFound = {
-  name: 'NotFound',
-  action() {
-    BlazeLayout.render('appbody', { main: 'not-found' })
-  }
-}
+// FlowRouter.notFound = {
+//   name: 'NotFound',
+//   action() {
+//     BlazeLayout.render('appbody', { main: 'not-found' })
+//   }
+// }

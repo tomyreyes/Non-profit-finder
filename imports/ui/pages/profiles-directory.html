@@ -2,13 +2,26 @@
   <div class="container">
     <header><h1>Profiles Directory</h1></header>
     <ul>
-      {{#each listOfProfiles}}
-      <li>{{ name }}</li>
+      {{#each profile in listOfProfiles}}
+
+      {{#if isUser}}
+
+      <!-- show nothing -->
+
+      {{else}}
+
+      {{#if profile.name}}
+      <li>{{ profile.name }}</li>
       {{#if memberOfTeam }}
       <span>user belongs to team</span>
       {{else}}
       <button class="add-to-team">Add to Team</button>
       {{/if}}
+      {{else}}
+      <!-- blank so you don't show profile until user edits profile-->
+      {{/if}}
+      {{/if}}
+
       {{/each}}
     </ul>
   </div>

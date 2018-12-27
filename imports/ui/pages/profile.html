@@ -1,13 +1,7 @@
 <template name="profile">
-  {{#each userProfile }}
-
   {{#if isOwner}}
 
-  {{#if ownerMissingInfo}}
-
-  <h1>Make sure to complete your profile</h1>
-
-  {{/if}}
+  {{#if userProfile }}
 
   <button class="edit-profile-btn">Edit Fields</button>
 
@@ -16,42 +10,43 @@
     <input
       type="text"
       name="name"
-      placeholder="{{#if name}}{{ name }}{{else}} Enter name {{/if}}"
+      placeholder="{{#if userProfile.name}}{{
+        userProfile.name
+      }}{{else}} Enter name {{/if}}"
     />
     <input
       type="text"
       name="email"
-      placeholder="{{#if email}}{{ email }}{{else}} Enter email {{/if}}"
+      placeholder="{{#if userProfile.email}}{{
+        userProfile.email
+      }}{{else}} Enter email {{/if}}"
     />
     <input
       type="text"
       name="bio"
-      placeholder="{{#if bio}}{{ bio }}{{else}} Enter bio {{/if}}"
+      placeholder="{{#if userProfile.bio}}{{
+        userProfile.bio
+      }}{{else}} Enter bio {{/if}}"
     />
     <input type="submit" value="Submit" />
   </form>
 
-  {{/if}} {{else }}
+  {{/if}}
+  <h2>Name: {{ userProfile.name }}</h2>
 
-  {{#each publicProfile}}
+  <h2>Email: {{ userProfile.email }}</h2>
 
-  {{ name }} {{ email }} {{ bio }}
-
-  {{/each}}
+  <p>Bio: {{ userProfile.bio }}</p>
 
   {{/if}}
 
-  {{#if name}}
-  <p>Name: {{ name }}</p>
+  {{else}}
+
+  {{#if publicProfile }}
+
+  {{ publicProfile.name }} {{ publicProfile.email }} {{ publicProfile.bio }}
+
   {{/if}}
 
-  {{#if email}}
-  <p>Email: {{ email }}</p>
   {{/if}}
-
-  {{#if bio}}
-  <p>Bio: {{ bio }}</p>
-  {{/if}}
-
-  {{/each}}
 </template>

@@ -1,16 +1,42 @@
 import { Meteor } from 'meteor/meteor'
 import { Template } from 'meteor/templating'
 import { ReactiveDict } from 'meteor/reactive-dict'
+import { Profiles } from '../../api/profiles/profiles.js'
 import { Teams } from '../../api/teams/teams.js'
 import './teams-directory.html'
 import './create-team.html'
+let profile
 
 Template.createTeam.onCreated(function teamOnCreated() {
-  //if I change to arrow there is no longer a this.
   this.autorun(() => {
     this.state = new ReactiveDict()
-    this.subscribe('userTeam')
+    this.subscribe('profile')
+    this.subscribe('teams')
   })
+})
+
+Template.createTeam.helpers({
+  teamsCollection() {
+    return Teams
+  },
+  notInTeam() {
+    profile = Profiles.findOne({ userId: Meteor.userId() })
+
+    if (profile && profile.inTeam) {
+      return false
+    } else return true
+  },
+  userTeam() {
+    let userTeam = Teams.findOne({ adminId: Meteor.userId() })
+    console.log(userTeam)
+    return userTeam
+  },
+  isEditing() {
+    const instance = Template.instance()
+    if (instance.state.get('isEditing')) {
+      return true
+    }
+  }
 })
 
 Template.createTeam.events({
@@ -35,10 +61,12 @@ Template.createTeam.events({
   },
   'submit .edit-team'(event) {
     event.preventDefault()
-
     const name = event.target.name.value || this.name
     const description = event.target.description.value || this.description
-    const adminId = this.adminId
+    const adminId = Meteor.userId()
+    if (!name && !description) {
+      return alert('Make sure to enter new information!')
+    }
     Meteor.call('teams.editTeam', {
       adminId,
       name,
@@ -47,25 +75,5 @@ Template.createTeam.events({
   },
   'click .edit-team-btn'(event, instance) {
     instance.state.set('isEditing', !instance.state.get('isEditing'))
-  }
-})
-
-Template.createTeam.helpers({
-  teamsCollection() {
-    return Teams
-  },
-  notInTeam() {
-    if (!this.inTeam) {
-      return true
-    }
-  },
-  userTeam() {
-    return Teams.find({})
-  },
-  isEditing() {
-    const instance = Template.instance()
-    if (instance.state.get('isEditing')) {
-      return true
-    }
   }
 })
