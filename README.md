@@ -67,7 +67,7 @@ s website, the Meteor forums, Youtube tutorials and following the tutorials on M
 
 I ran into some challenges while implementing packages for my project. In the research phase of this project I spent some time looking for recommended meteor packages I could use to streamline this project. Most of the packages worked great, however I found some to be tricky to work with because I would run into issues with them which I would later find out were open issues of their project. For instance, I spent some time trying to implement, autoform's quickform into my project. The insert form was not working and I later found out the problem I was facing is an [ongoing issue](https://github.com/aldeed/meteor-autoform/issues/1575). I have faced similar issues to this in regards to Simple Schema and Materialize.
 
-In addition to this, I spent some time trying to use Blaze's data context so I could refer to this in my templates differently. After much confusion, I decided to no longer rely on the data context because I was receiving duplicates components in many areas of my application. This refactor took some time because I had to find different ways to access the same data.
+Along with this, I spent some time trying to use Blaze's data context so I could refer to this in my templates differently. After much confusion, I decided to no longer rely on the data context because I was receiving duplicates components in many areas of my application. This refactor took some time because I had to find different ways to access the same data.
 
 ## Future Additions
 
@@ -77,7 +77,7 @@ As well as this, I would have liked to have done a better job incorporating the 
 
 I also would have spent some time writing tests for my project. Test Driven Development is something I have been working on prior to this project and I would have liked to at the very least established tests to see if my database queries are giving me back the information I expect.
 
-Finally, I would spend more time enhancing the user experience. For instance, each user should be able to include a photo of themselves and links to their social media. Additionally, each team on the website should have their own team page where the information can be edited. As well, I would have liked to add client side validation to the form on the profile page.
+Finally, I would spend more time enhancing the user experience. For instance, each user should be able to include a photo of themselves and links to their social media. Additionally, each team on the website should have their own team page where the information can be edited. I also would have liked to add client side validation to the form on the profile page. At its current state it is validating but there is nothing in place for the user to see what they did incorrectly.
 
 ## This application was built using:
 
