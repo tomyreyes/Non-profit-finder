@@ -89,3 +89,7 @@ Finally, I would spend more time enhancing the user experience. For instance, ea
 - [accounts-password](https://atmospherejs.com/meteor/accounts-password)
 - [meteortoys:allthings](https://github.com/MeteorToys/meteor-devtools)
 - [materialize](https://materializecss.com/)
+
+## Notes
+
+The settings.json will eventually be removed from this repo. I have left it in for ease of use. 
