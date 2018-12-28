@@ -7,3 +7,12 @@ Accounts.onCreateUser((options, user) => {
   Meteor.call('profiles.insertUserId', user._id)
   return user
 })
+
+ServiceConfiguration.configurations.remove({
+  service: 'google'
+})
+ServiceConfiguration.configurations.insert({
+  service: 'google',
+  clientId: Meteor.settings.google.clientId,
+  secret: Meteor.settings.google.secret
+})
