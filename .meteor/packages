@@ -28,9 +28,6 @@ aldeed:collection2@3.0.0
 accounts-google
 service-configuration
 random
-dburles:collection-helpers
 meteortoys:allthings
 check
-cultofcoders:grapher
-deanius:promise
 materialize:materialize

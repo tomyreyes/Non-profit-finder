@@ -2,7 +2,8 @@ import { Template } from 'meteor/templating'
 import { Profiles } from '../../api/profiles/profiles.js'
 import { Teams } from '../../api/teams/teams.js'
 import './directory.html'
-import './create-team.js'
+import '../components/create-team.js'
+import '../components/profiles-directory.js'
 
 Template.directory.onCreated(function teamsOnCreated() {
   this.subscribe('teams')

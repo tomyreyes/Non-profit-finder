@@ -2,7 +2,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router'
 import { BlazeLayout } from 'meteor/kadira:blaze-layout'
 import '../../ui/layouts/app-body.js'
 import '../../ui/pages/profile.js'
-import '../../ui/pages/profiles-directory.js'
+import '../../ui/components/profiles-directory.js'
 
 FlowRouter.route('/', {
   name: 'Home',

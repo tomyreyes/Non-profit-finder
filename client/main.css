@@ -47,6 +47,24 @@ main {
 
 .at-social-btn {
   background-color: #26a69a !important;
+
+  text-decoration: none;
+  color: #fff;
+
+  text-align: center;
+  letter-spacing: 0.5px;
+  -webkit-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 16px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* ONE-UI*/

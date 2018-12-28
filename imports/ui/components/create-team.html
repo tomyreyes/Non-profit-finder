@@ -11,7 +11,9 @@
   {{#if userTeam}}
 
   <h3>Your team</h3>
-  <button class="edit-team-btn">Edit Team</button> {{#if isEditing}}
+  <button class="edit-team-btn">Edit Team</button>
+
+  {{#if isEditing}}
   <form class="edit-team">
     <input type="text" name="name" placeholder="{{ userTeam.name }}" />
     <input
