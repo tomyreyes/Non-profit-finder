@@ -30,4 +30,4 @@ service-configuration
 random
 meteortoys:allthings
 check
-materialize:materialize
+materialize:materialize@=0.97.0
