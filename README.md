@@ -13,9 +13,9 @@ Only logged in users of the website will have access to the profile and director
 
 Once a user is logged in they are re-directed to their own profile page where they are able to view and edit their own information.
 
-As well, a new navigation link to a Directory Page is made available to them.
+As well, a new navigation link to a Directory page is made available to them.
 
-In the Directory Page, the use will may be able to see three different components.
+In the Directory page, the use will may be able to see three different components.
 
 If the user is the admin of a team, which is the individual that creates a team, they will see their teams information as well as have the ability to edit the team.
 
