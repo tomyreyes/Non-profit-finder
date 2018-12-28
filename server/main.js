@@ -27,7 +27,8 @@ Meteor.startup(function() {
         name: 'Henry Dunant',
         email: 'WeCare@redcross.ca',
         bio: 'I am a co-founder of the Red Cross',
-        userId: adminId
+        userId: adminId,
+        inTeam: true
       }
     ].forEach(function(profile) {
       Profiles.insert(profile)
