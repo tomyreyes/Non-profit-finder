@@ -1,8 +1,8 @@
-# Non-profit-finder
+# Non-Profit Finder
 
 Meteor / Blaze Application
 This is a full stack application built with Meteor and Blaze. Prior to this project I had never used Meteor or Blaze so it was a great learning experience.
-The application I created is essentially a platform where Non-profit organizations can gain exposure and find individuals interested in joining a non-profit.
+The application I created is essentially a platform where Non-Profit organizations can gain exposure and find individuals interested in joining a Non-Profit.
 
 ## General Flow of the App
 
