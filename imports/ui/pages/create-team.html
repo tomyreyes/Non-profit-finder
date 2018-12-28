@@ -1,6 +1,6 @@
 <template name="createTeam">
   {{#if notInTeam}}
-  <h2>Create Team</h2>
+  <h3>Create Team</h3>
   <form class="create-team">
     <input type="text" name="name" placeholder="Enter your team name" />
     <input type="text" name="description" placeholder="Describe your team." />
@@ -10,7 +10,7 @@
 
   {{#if userTeam}}
 
-  <h2>Your team</h2>
+  <h3>Your team</h3>
   <button class="edit-team-btn">Edit Team</button> {{#if isEditing}}
   <form class="edit-team">
     <input type="text" name="name" placeholder="{{ userTeam.name }}" />
@@ -23,9 +23,9 @@
   </form>
   {{/if}}
 
-  <h3>Team Name: {{ userTeam.name }}</h3>
+  <p><b>Team Name:</b> {{ userTeam.name }}</p>
 
-  <h3>Description: {{ userTeam.description }}</h3>
+  <p><b>Description:</b> {{ userTeam.description }}</p>
 
   {{/if}}
 

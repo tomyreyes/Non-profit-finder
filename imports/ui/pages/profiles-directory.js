@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor'
 import { Template } from 'meteor/templating'
 import { Profiles } from '../../api/profiles/profiles.js'
 import './profiles-directory.html'
+import { Teams } from '../../api/teams/teams.js'
 
 Template.profilesDirectory.helpers({
   listOfProfiles() {
@@ -9,6 +10,13 @@ Template.profilesDirectory.helpers({
     const list = profiles.filter(profile => profile.userId !== Meteor.userId())
     console.log(list)
     return list
+  },
+  userOwnsTeam() {
+    const team = Teams.findOne({ adminId: Meteor.userId() })
+
+    if (team) {
+      return true
+    }
   }
 })
 

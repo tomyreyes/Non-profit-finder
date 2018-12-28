@@ -1,16 +1,17 @@
 import { Template } from 'meteor/templating'
 import { Profiles } from '../../api/profiles/profiles.js'
 import { Teams } from '../../api/teams/teams.js'
-import './teams-directory.html'
+import './directory.html'
 import './create-team.js'
 
-Template.teamsDirectory.onCreated(function teamsOnCreated() {
+Template.directory.onCreated(function teamsOnCreated() {
   this.subscribe('teams')
   this.subscribe('userProfile')
 })
 
-Template.teamsDirectory.helpers({
+Template.directory.helpers({
   teamsList() {
+    console.log('hi')
     return Teams.find({})
   },
   userProfile() {

@@ -1,0 +1,18 @@
+<template name="directory">
+  <main class="home center container">
+    <h1>Directory</h1>
+
+    {{> createTeam}}
+    <h3>Teams</h3>
+    <h5>This is a list of all Non-Profit Teams on NPF</h5>
+    <ul>
+      {{#each team in teamsList}}
+      <li>
+        <b>Name:</b> {{ team.name }}
+        <span><b>Description</b> {{ team.description }}</span>
+      </li>
+      {{/each}}
+    </ul>
+    {{> profilesDirectory}}
+  </main>
+</template>

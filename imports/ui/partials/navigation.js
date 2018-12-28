@@ -3,6 +3,7 @@ import './navigation.html'
 
 Template.navigation.events({
   'click .logout'() {
+    console.log('hi')
     AccountsTemplates.logout()
   }
 })
@@ -10,12 +11,14 @@ Template.navigation.events({
 Template.navigation.helpers({
   userProfileLink() {
     return Meteor.userId()
+  },
+  userLoggedIn() {
+    return Meteor.userId()
   }
 })
 
 Template.navigation.events({
   'click .myProfileLink'() {
-    console.log('het')
     FlowRouter.go(`/profiles/${Meteor.userId()}`)
   }
 })

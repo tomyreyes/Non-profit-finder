@@ -1,66 +1,67 @@
 <template name="profile">
-  {{#if isOwner}}
+  <main class="center container">
+    {{#if isOwner}}
 
-  {{#if userProfile }}
+    {{#if userProfile }}
+    <h1>My Profile</h1>
+    <a class="edit-profile-btn btn">Edit Fields</a>
 
-  <button class="edit-profile-btn">Edit Fields</button>
+    {{#if isEditing}}
+    <form class="edit-profile">
+      <input
+        type="text"
+        name="name"
+        placeholder="{{#if userProfile.name}}{{
+          userProfile.name
+        }}{{else}} Enter name {{/if}}"
+      />
+      <input
+        type="text"
+        name="email"
+        placeholder="{{#if userProfile.email}}{{
+          userProfile.email
+        }}{{else}} Enter email {{/if}}"
+      />
+      <input
+        type="text"
+        name="bio"
+        placeholder="{{#if userProfile.bio}}{{
+          userProfile.bio
+        }}{{else}} Enter bio {{/if}}"
+      />
+      <input class="user-btn" id="submit-btn" type="submit" value="Submit" />
+    </form>
 
-  {{#if isEditing}}
-  <form class="edit-profile">
-    <input
-      type="text"
-      name="name"
-      placeholder="{{#if userProfile.name}}{{
-        userProfile.name
-      }}{{else}} Enter name {{/if}}"
-    />
-    <input
-      type="text"
-      name="email"
-      placeholder="{{#if userProfile.email}}{{
-        userProfile.email
-      }}{{else}} Enter email {{/if}}"
-    />
-    <input
-      type="text"
-      name="bio"
-      placeholder="{{#if userProfile.bio}}{{
-        userProfile.bio
-      }}{{else}} Enter bio {{/if}}"
-    />
-    <input type="submit" value="Submit" />
-  </form>
+    {{/if}}
+    <h5>Name: {{ userProfile.name }}</h5>
 
-  {{/if}}
-  <h2>Name: {{ userProfile.name }}</h2>
+    <h5>Email: {{ userProfile.email }}</h5>
 
-  <h2>Email: {{ userProfile.email }}</h2>
+    {{#if ifUserIsInTeam }}
 
-  {{#if ifUserIsInTeam }}
+    <h5>Team: {{ ifUserIsInTeam.name }}</h5>
+    {{else}}
+    <p>User is not in a team.</p>
+    {{/if}}
+    <h5>Bio: {{ userProfile.bio }}</h5>
 
-  <h2>Team: {{ ifUserIsInTeam.name }}</h2>
-  {{else}}
-  <p>User is not in a team.</p>
-  {{/if}}
+    {{/if}}
 
-  <p>Bio: {{ userProfile.bio }}</p>
+    {{else}}
 
-  {{/if}}
+    {{#if publicProfile }}
+    <h1>Profile</h1>
+    <h5>Name: {{ publicProfile.name }}</h5>
+    <h5>Email: {{ publicProfile.email }}</h5>
+    {{#if ifPublicIsInTeam}}
+    <h5>Team: {{ ifPublicIsInTeam.name }}</h5>
+    {{else}}
+    <h5>User is not in a team.</h5>
+    {{/if}}
+    <h5>Bio: {{ publicProfile.bio }}</h5>
 
-  {{else}}
+    {{/if}}
 
-  {{#if publicProfile }}
-
-  <h2>{{ publicProfile.name }}</h2>
-  <h2>{{ publicProfile.email }}</h2>
-  {{#if ifPublicIsInTeam}}
-  <h2>{{ ifPublicIsInTeam.name }}</h2>
-  {{else}}
-  <p>User is not in a team.</p>
-  {{/if}}
-  <h2>{{ publicProfile.bio }}</h2>
-
-  {{/if}}
-
-  {{/if}}
+    {{/if}}
+  </main>
 </template>

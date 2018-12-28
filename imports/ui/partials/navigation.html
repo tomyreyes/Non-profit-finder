@@ -1,19 +1,40 @@
 <template name="navigation">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">Non-Profit Finder</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a href="/">Home</a></li>
-        <li class="nav-item"><a href="/teams">Teams</a></li>
-        <li class="nav-item">
+  <nav>
+    <div class="nav-wrapper indigo lighten-3">
+      <a href="/" class="brand-logo center">Non-Profit Finder</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+        ><i class="material-icons">menu</i></a
+      >
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+        {{#if userLoggedIn}}
+        <li><a href="/directory">Directory</a></li>
+        <li>
           <a class="myProfileLink" href="/profiles/{{ userProfileLink }}"
-            >My Profile</a
-          >
+            >My Profile
+          </a>
         </li>
-        <li class="nav-item">
-          <button class="logout btn-primary">logout</button>
-        </li>
+
+        <li><a class="logout btn">Logout</a></li>
+        {{else}}
+        <li><a href="/login">Login / Sign-Up</a></li>
+        {{/if}}
       </ul>
     </div>
   </nav>
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="/">Home</a></li>
+    {{#if userLoggedIn}}
+    <li><a href="/directory">Directory</a></li>
+    <li><a href="/profiles/{{ userProfileLink }}">My Profile</a></li>
+    <li><a class="logout btn">Logout</a></li>
+    {{else}}
+    <li><a href="/login">Login / Sign-Up</a></li>
+    {{/if}}
+  </ul>
+  <script>
+    $(document).ready(function() {
+      $('.sidenav').sidenav()
+    })
+  </script>
 </template>

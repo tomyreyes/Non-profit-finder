@@ -18,6 +18,13 @@ FlowRouter.route('/login', {
   }
 })
 
+FlowRouter.route('/signup', {
+  login: 'signup',
+  action() {
+    BlazeLayout.render('appBody', { page: 'signup' })
+  }
+})
+
 FlowRouter.route('/profiles', {
   name: 'Profiles',
   action() {
@@ -46,10 +53,10 @@ FlowRouter.route('/profiles/:id', {
   ]
 })
 
-FlowRouter.route('/teams', {
-  name: 'Teams',
+FlowRouter.route('/directory', {
+  name: 'Directory',
   action() {
-    BlazeLayout.render('appBody', { page: 'teamsDirectory' })
+    BlazeLayout.render('appBody', { page: 'directory' })
   },
   triggersEnter: [
     (context, redirect) => {
@@ -60,9 +67,8 @@ FlowRouter.route('/teams', {
   ]
 })
 
-// FlowRouter.notFound = {
-//   name: 'NotFound',
-//   action() {
-//     BlazeLayout.render('appbody', { main: 'not-found' })
-//   }
-// }
+FlowRouter.notFound = {
+  action() {
+    BlazeLayout.render('appBody', { page: 'not-found' })
+  }
+}

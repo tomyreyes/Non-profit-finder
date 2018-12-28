@@ -3,7 +3,7 @@ import { Template } from 'meteor/templating'
 import { ReactiveDict } from 'meteor/reactive-dict'
 import { Profiles } from '../../api/profiles/profiles.js'
 import { Teams } from '../../api/teams/teams.js'
-import './teams-directory.html'
+import './directory.html'
 import './create-team.html'
 
 Template.createTeam.onCreated(function teamOnCreated() {

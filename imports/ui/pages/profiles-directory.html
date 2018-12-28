@@ -1,6 +1,7 @@
 <template name="profilesDirectory">
-  <div class="container">
-    <header><h1>Profiles Directory</h1></header>
+  <section>
+    <h3>Profiles</h3>
+    <h5>This is a list of all members of our platform</h5>
     <ul>
       {{#each profile in listOfProfiles}}
 
@@ -12,25 +13,34 @@
 
       {{#if profile.name}}
       <li>
-        <a href="/profiles/{{ profile.userId }}">{{ profile.name }}</a>
+        <b>Name:</b>
+        <a
+          id="username"
+          href="/profiles/{{ profile.userId }}"
+          class="collection-item"
+          >{{ profile.name }}</a
+        >
+
+        {{#if profile.inTeam }}
+        <span><b>Status:</b> user belongs to team</span> {{else}}
+        {{#if userOwnsTeam}}
+        <button
+          class="add-to-team"
+          name="{{ profile.name }}"
+          id="{{ profile.userId }}"
+        >
+          Add to Team
+        </button>
+
+        {{/if}} {{/if}}
       </li>
-      {{#if profile.inTeam }}
-      <span>user belongs to team</span>
-      {{else}}
-      <button
-        class="add-to-team"
-        name="{{ profile.name }}"
-        id="{{ profile.userId }}"
-      >
-        Add to Team
-      </button>
-      {{/if}}
       {{else}}
       <!-- blank so you don't show profile until user edits profile-->
+
       {{/if}}
       {{/if}}
 
       {{/each}}
     </ul>
-  </div>
+  </section>
 </template>

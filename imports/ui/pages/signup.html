@@ -1,5 +1,5 @@
-<template name="login">
-  <header class="container block-header bg-primary">
+<template name="signup">
+  <header class="container block-header bg-success">
     <ul class="block-options">
       <li>
         <a
@@ -12,15 +12,15 @@
         ></a>
       </li>
     </ul>
-    <h3 class="block-title">Login</h3>
+    <h3 class="block-title">Register</h3>
   </header>
   <div
     class=" login container block-content block-content-full block-content-narrow"
   >
-    {{> atForm}}
+    {{> atForm state='signUp'}}
   </div>
 </template>
-<template name="override-atTextInput">
+<template name="overwrite-atTextInput">
   <div
     class="input form-material form-material-primary floating {{#if isValidating}}validating{{/if}} {{#if hasError}}error{{/if}} {{#if hasSuccess}}has-success{{/if}} {{#if feedback}}has-feedback{{/if}}"
   >
@@ -38,12 +38,14 @@
   </div>
 </template>
 
-<template name="override-atPwdFormBtn">
-  <button type="submit" class="user-btn btn-primary">Log In</button>
+<template name="overwrite-atPwdFormBtn">
+  <button type="submit" class="user-btn btn-success">Sign In</button>
 </template>
 
-<template name="override-atSignupLink">
-  <div class="at-signup-link">
-    <p>{{ preText }} <a href="/signup">Sign-Up</a></p>
+<template name="overwrite-atSigninLink">
+  <div class="at-signin-link">
+    <p>
+      {{ preText }} <a href="/login">{{ linkText }}</a> {{ suffText }}
+    </p>
   </div>
 </template>
