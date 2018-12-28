@@ -1,2 +1,2 @@
 import './accounts.js'
-import './seed.js'
+// import './seed.js'
