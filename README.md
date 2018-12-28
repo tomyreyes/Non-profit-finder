@@ -59,12 +59,12 @@ I used Meteor's publish and subscribe for communication between the Client and S
 
 ## Challenges
 
-It is definitely always a challenge learning an entirely new framework. This challenge fell during the holiday season and so I only had about 6 days I was available to work on it. Luckily some aspects this project are similar to technologies that I have worked with in the past such as EJS, Laravel and Blade. Additionally, Meteor has been a technology I have always been interested in.
+It is definitely always a challenge learning an entirely new framework. This challenge fell during the holiday season so I only had about 6 days I was available to work on it. Luckily some aspects this project are similar to technologies that I have worked with in the past such as EJS, Laravel and Blade. Additionally, Meteor has been a technology I have always been interested in.
 
 My approach to learning included a variety of different resources. I used the documentation on Meteor
 s website, the Meteor forums, Youtube tutorials and following the tutorials on Meteor's website.
 
-I ran into some challenges while implementing packages for my project. In the research phase of this project I spent some time looking for recommended meteor packages I could use to streamline this project. Most of the packages worked great, however I found some to be tricky to work with because I would run into issues with them which I would later find out were open issues of their project. For instance, I spent some time trying to implement, autoform's quickform into my project. The insert form was not working and I later found out the problem I was facing is an [ongoing issue](https://github.com/aldeed/meteor-autoform/issues/1575). I have faced similar issues to this in regards to Simple Schema and Materialize.
+I ran into some challenges while implementing packages for my project. In the research phase of this project I spent some time looking for recommended meteor packages I could use to streamline this project. Most of the packages worked great, however I found some to be tricky to work with because I would run into issues with them which I would later find out are open issues on the packages github page. For instance, I spent some time trying to implement, autoform's quickform into my project. The insert form was not working and I later found out the problem I was facing is an [ongoing issue](https://github.com/aldeed/meteor-autoform/issues/1575). I have faced similar issues to this in regards to Simple Schema and Materialize.
 
 Along with this, I spent some time trying to use Blaze's data context so I could refer to this in my templates differently. After much confusion, I decided to no longer rely on the data context because I was receiving duplicates components in many areas of my application. This refactor took some time because I had to find different ways to access the same data.
 
