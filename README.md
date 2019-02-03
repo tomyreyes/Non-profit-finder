@@ -68,16 +68,6 @@ I ran into some challenges while implementing packages for my project. In the re
 
 Along with this, I spent some time trying to use Blaze's data context so I could refer to this in my templates differently. After much confusion, I decided to no longer rely on the data context because I was receiving duplicates components in many areas of my application. This refactor took some time because I had to find different ways to access the same data.
 
-## Future Additions
-
-If I had more time to work on this project I would definitely like to incorporate a way to invite users to teams, and for users to be able to request an invitation to a team. At its current state, only team owners are able to add members and this is not done in an optimal way. Admins are able to add users to their team without any verification or permission from other uses which is not ideal for the users experience.
-
-As well as this, I would have liked to have done a better job incorporating the Log in and Registration templates provided. Since I was using Meteor's account-password and useraccounts:unstyled to streamline user authentication and log in, I had to override the packages' built in form to emulate the templates using [aldeed:template-extensions](https://github.com/aldeed/meteor-template-extension). In this attempt, I was unable to override the log in / sign-up button to differentiate between the two pages, so both pages have a blue button that say sign-in.
-
-I also would have spent some time writing tests for my project. Test Driven Development is something I have been working on prior to this project and I would have liked to at the very least established tests to see if my database queries are giving me back the information I expect.
-
-Finally, I would spend more time enhancing the user experience. For instance, each user should be able to include a photo of themselves and links to their social media. Additionally, each team on the website should have their own team page where the information can be edited. I also would have liked to add client side validation to the form on the profile page. At its current state it is validating but there is nothing in place for the user to see what they did incorrectly.
-
 ## This application was built using:
 
 - [Flow-Router](https://github.com/kadirahq/flow-router)
